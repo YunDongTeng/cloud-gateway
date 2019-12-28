@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gateway-manage" />
+        <module name="gateway-proxy" />
+        <module name="gateway-user" />
+        <module name="gateway-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="cloud-gateway" target="1.8" />
+      <module name="gateway-common" target="1.8" />
+      <module name="gateway-manage" target="1.8" />
+      <module name="gateway-proxy" target="1.8" />
+      <module name="gateway-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="PREFER_TARGET_JDK_COMPILER" value="false" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-gateway" options="-parameters" />
+      <module name="gateway-common" options="-parameters" />
+      <module name="gateway-manage" options="-parameters" />
+      <module name="gateway-proxy" options="-parameters" />
+      <module name="gateway-user" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-gateway.iml" filepath="$PROJECT_DIR$/cloud-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-common/gateway-common.iml" filepath="$PROJECT_DIR$/gateway-common/gateway-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-manage/gateway-manage.iml" filepath="$PROJECT_DIR$/gateway-manage/gateway-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-proxy/gateway-proxy.iml" filepath="$PROJECT_DIR$/gateway-proxy/gateway-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-user/gateway-user.iml" filepath="$PROJECT_DIR$/gateway-user/gateway-user.iml" />
+    </modules>
+  </component>
+</project>
