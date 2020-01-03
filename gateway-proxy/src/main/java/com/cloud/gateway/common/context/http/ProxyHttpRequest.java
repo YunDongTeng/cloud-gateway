@@ -45,7 +45,9 @@ public class ProxyHttpRequest {
         Map<String, String> uriParams = UriUtil.getQueryParams(new URI(request.uri()));
         proxyHttpRequest.params = uriParams;
 
-        proxyHttpRequest.uri = request.uri();
+        int pIndex = request.uri().indexOf("?");
+        proxyHttpRequest.uri = pIndex != -1 ? request.uri().substring(0, pIndex) : request.uri();
+        // proxyHttpRequest.uri = request.uri().substring(0, request.uri().indexOf("?"));
 
         proxyHttpRequest.method = request.method();
 

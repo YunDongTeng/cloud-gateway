@@ -2,18 +2,14 @@ package com.cloud.gateway.handler;
 
 import com.cloud.gateway.common.context.ProxyRequestContext;
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
-import com.cloud.gateway.exception.exception.AppException;
+import com.cloud.gateway.exception.AppException;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.HttpResponse;
 import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.annotation.Order;
 
 @ChannelHandler.Sharable
 public class HttpConnectionReceiveHandler extends ChannelInboundHandlerAdapter {
@@ -58,9 +54,9 @@ public class HttpConnectionReceiveHandler extends ChannelInboundHandlerAdapter {
         logger.info("URI: {}", request.uri());
         logger.info("params: {}", request.decoderResult());
 
-        if (request.method() == HttpMethod.GET) {
+        /*if (request.method() == HttpMethod.GET) {
             throw new AppException("请求方法错误");
-        }
+        }*/
         ProxyRequestContext proxyRequestContext = new ProxyRequestContext();
 
         ProxyHttpRequest proxyHttpRequest = new ProxyHttpRequest().build(request);

@@ -1,4 +1,4 @@
-package com.cloud.gateway.response;
+package com.cloud.gateway.common.response;
 
 public class Result<T> {
 

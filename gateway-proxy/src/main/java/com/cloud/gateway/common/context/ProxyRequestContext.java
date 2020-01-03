@@ -1,6 +1,7 @@
 package com.cloud.gateway.common.context;
 
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
+import com.cloud.gateway.entity.SysFullApi;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpRequest;
@@ -15,6 +16,9 @@ public class ProxyRequestContext {
 
     // 代理响应对象
     private FullHttpResponse fullHttpResponse;
+
+    // 网关信息
+    private SysFullApi fullApi;
 
     // 客户端真实Http请求
     private HttpRequest httpRequest;
@@ -49,5 +53,13 @@ public class ProxyRequestContext {
 
     public void setFullHttpResponse(FullHttpResponse fullHttpResponse) {
         this.fullHttpResponse = fullHttpResponse;
+    }
+
+    public SysFullApi getFullApi() {
+        return fullApi;
+    }
+
+    public void setFullApi(SysFullApi fullApi) {
+        this.fullApi = fullApi;
     }
 }

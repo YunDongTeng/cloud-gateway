@@ -1,4 +1,4 @@
-package com.cloud.gateway.exception.exception;
+package com.cloud.gateway.exception;
 
 public class AppException extends RuntimeException {
 
@@ -6,3 +6,5 @@ public class AppException extends RuntimeException {
         super(message);
     }
 }
+
+

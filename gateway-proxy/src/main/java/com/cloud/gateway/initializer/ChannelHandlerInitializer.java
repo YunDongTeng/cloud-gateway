@@ -3,12 +3,15 @@ package com.cloud.gateway.initializer;
 import com.cloud.gateway.handler.HttpConnectionReceiveHandler;
 import com.cloud.gateway.handler.HttpFinalReadHandler;
 import com.cloud.gateway.handler.HttpFinalWriteHandler;
+import com.cloud.gateway.handler.HttpRestClientHandler;
 import com.cloud.gateway.handler.validator.HttpValidatorHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 
 public class ChannelHandlerInitializer extends ChannelInitializer<SocketChannel> {
@@ -20,8 +23,8 @@ public class ChannelHandlerInitializer extends ChannelInitializer<SocketChannel>
         // 添加Http请求解码器
         channelPipeline.addLast("codec", new HttpServerCodec());
 
-       /* channelPipeline.addLast("decoder", new StringDecoder());
-        channelPipeline.addLast("encoder", new StringEncoder());*/
+        channelPipeline.addLast("decoder", new StringDecoder());
+        channelPipeline.addLast("encoder", new StringEncoder());
 
         channelPipeline.addLast(new HttpObjectAggregator(8192));
 
@@ -30,6 +33,8 @@ public class ChannelHandlerInitializer extends ChannelInitializer<SocketChannel>
         channelPipeline.addLast(new HttpFinalWriteHandler());
 
         channelPipeline.addLast(new HttpValidatorHandler());
+
+        channelPipeline.addLast(new HttpRestClientHandler());
 
         channelPipeline.addLast(new HttpFinalReadHandler());
 
