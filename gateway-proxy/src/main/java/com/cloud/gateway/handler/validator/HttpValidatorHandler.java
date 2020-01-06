@@ -2,8 +2,8 @@ package com.cloud.gateway.handler.validator;
 
 import com.cloud.gateway.common.context.ProxyRequestContext;
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
+import com.cloud.gateway.common.exception.AppException;
 import com.cloud.gateway.entity.SysApi;
-import com.cloud.gateway.exception.AppException;
 import com.cloud.gateway.service.SysApiService;
 import com.cloud.gateway.util.ApplicationContextUtil;
 import io.netty.buffer.Unpooled;

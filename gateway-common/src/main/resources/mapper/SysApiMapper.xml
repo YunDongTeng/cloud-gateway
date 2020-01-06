@@ -23,4 +23,34 @@
         from sys_api
         where uri = #{uri}
     </select>
+
+    <select id="queryApiByPage" resultMap="SysApiMap">
+        select
+        <include refid="baseSql"/>
+        from sys_api a join (
+            select
+                id as apiId
+            from sys_api
+            where 1 = 1
+                <if test="name!=null and name !=''">
+                    and `name` = #{name}
+                </if>
+                <if test="uri!=null and uri !=''">
+                    and uri = #{uri}
+                </if>
+            limit #{start},#{pageSize}
+        ) b on b.apiId = a.id
+    </select>
+    <select id="getTotal" resultType="Integer">
+        select
+            count(id)
+        from sys_api
+        where 1 = 1
+        <if test="name!=null and name !=''">
+            and `name` = #{name}
+        </if>
+        <if test="uri!=null and uri !=''">
+            and uri = #{uri}
+        </if>
+    </select>
 </mapper>

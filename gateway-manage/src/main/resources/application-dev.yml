@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://122.51.148.46:3306/gateway?characeterEncoding=utf8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: 123qwe
+#logging:
+#  config: classpath:log/logback-spring.xml
+#  level:
+#    org:
+#      springframework:
+#        boot:
+#          autoconfigure: error

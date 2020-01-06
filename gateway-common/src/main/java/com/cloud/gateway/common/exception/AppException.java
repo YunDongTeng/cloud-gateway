@@ -1,4 +1,4 @@
-package com.cloud.gateway.exception;
+package com.cloud.gateway.common.exception;
 
 public class AppException extends RuntimeException {
 

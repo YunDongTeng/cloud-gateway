@@ -3,22 +3,15 @@ package com.cloud.gateway.handler;
 import com.alibaba.fastjson.JSON;
 import com.cloud.gateway.builder.client.ClientRequest;
 import com.cloud.gateway.common.context.ProxyRequestContext;
-import com.cloud.gateway.common.context.http.ProxyHttpRequest;
 import com.cloud.gateway.common.response.HttpClientResult;
 import com.cloud.gateway.common.util.HttpClientUtil;
-import com.cloud.gateway.entity.SysApi;
 import com.cloud.gateway.exception.AppException;
-import com.cloud.gateway.service.SysApiService;
-import com.cloud.gateway.util.ApplicationContextUtil;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 
 import java.nio.charset.Charset;
-import java.util.Map;
 
 /**
  * Http处理
@@ -44,7 +37,7 @@ public class HttpRestClientHandler extends ChannelInboundHandlerAdapter {
         System.out.println(JSON.toJSON(clientResult));
 
         FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
-                HttpResponseStatus.OK, Unpooled.copiedBuffer(JSON.toJSONString(clientResult), Charset.defaultCharset()));
+                HttpResponseStatus.OK, Unpooled.copiedBuffer(JSON.toJSONString(clientResult.getContent()), Charset.defaultCharset()));
 
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON);
         response.headers().set(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes());
