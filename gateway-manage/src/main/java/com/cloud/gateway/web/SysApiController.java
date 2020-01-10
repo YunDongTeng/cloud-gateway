@@ -2,6 +2,7 @@ package com.cloud.gateway.web;
 
 import com.cloud.gateway.common.response.Result;
 import com.cloud.gateway.dto.SysApiDto;
+import com.cloud.gateway.dto.SysFullApiDto;
 import com.cloud.gateway.service.SysApiService;
 import com.cloud.gateway.vo.SysApiVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +29,13 @@ public class SysApiController {
         return new Result<SysApiVo>().success(sysApiService.queryApi(apiDto));
     }
 
+    /**
+     * 保存api相关信息
+     * @param fullApiDto
+     * @return
+     */
+    @PostMapping("/save")
+    public Result<Boolean> save(@RequestBody SysFullApiDto fullApiDto) {
+        return new Result<Boolean>().success(sysApiService.saveFullApi(fullApiDto));
+    }
 }

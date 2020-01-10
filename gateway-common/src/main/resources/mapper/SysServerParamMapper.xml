@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.gateway.mapper.SysServerParamDao">
+
+
+
+    <resultMap id="SysServerParamMap" type="com.cloud.gateway.entity.SysServerParam">
+        <id column="id" property="id"/>
+        <result property="apiServerId" column="api_server_id"></result>
+        <result property="apiParamName" column="api_param_name"></result>
+        <result property="name" column="name"></result>
+        <result property="position" column="position"></result>
+        <result property="required" column="required"></result>
+        <result property="requestType" column="request_type"></result>
+    </resultMap>
+
+    <sql id="baseSql">
+        id, api_param_name, api_server_id, `name`, `position`, request_type
+    </sql>
+
+    <select id="queryByServerId" resultMap="SysServerParamMap">
+        select
+        <include refid="baseSql"/>
+        from sys_api_server_param
+        where
+        api_server_id = #{ apiServerId }
+    </select>
+
+    <insert id="batchSave" parameterType="java.util.List">
+        insert into
+        sys_api_server_param (api_param_name, api_server_id, name, position, request_type, create_time, update_time)
+        values
+        <foreach collection="list" item="param" separator="," >
+            (#{param.apiParamName}, #{param.apiServerId}, #{param.name},#{param.position}, #{param.requestType}, #{param.createTime}, #{param.updateTime})
+        </foreach>
+
+    </insert>
+</mapper>

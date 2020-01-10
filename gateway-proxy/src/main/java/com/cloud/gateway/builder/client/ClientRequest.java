@@ -75,8 +75,8 @@ public class ClientRequest {
 
         Map<String, String> param = Maps.newHashMap();
 
-        Map<Integer, SysApiParam> apiParamMap = fullApi.getApiParams().stream()
-                .collect(Collectors.toMap(SysApiParam::getId, item -> item));
+        Map<String, SysApiParam> apiParamMap = fullApi.getApiParams().stream()
+                .collect(Collectors.toMap(SysApiParam::getName, item -> item));
 
         fullApi.getServerParams().stream()
 
@@ -92,7 +92,7 @@ public class ClientRequest {
                 .forEach(e -> {
                     switch (e.getPosition()) {
                         case "REQUEST_PARAM":
-                            param.put(e.getName(), getValueFromRequest(proxyHttpRequest, apiParamMap.get(e.getApiParamId())));
+                            param.put(e.getName(), getValueFromRequest(proxyHttpRequest, apiParamMap.get(e.getApiParamName())));
                             break;
 
                         default:

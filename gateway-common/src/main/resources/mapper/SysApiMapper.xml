@@ -38,6 +38,9 @@
                 <if test="uri!=null and uri !=''">
                     and uri = #{uri}
                 </if>
+                <if test="status!=null and status !=''">
+                    and status = #{status}
+                </if>
             limit #{start},#{pageSize}
         ) b on b.apiId = a.id
     </select>
@@ -52,5 +55,17 @@
         <if test="uri!=null and uri !=''">
             and uri = #{uri}
         </if>
+        <if test="status!=null and status !=''">
+            and status = #{status}
+        </if>
     </select>
+
+    <insert id="save" parameterType="com.cloud.gateway.entity.SysApi">
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into
+        sys_api (`name`, method, content_type, uri, status, `schema`, remark, create_time, update_time)
+        values (#{name}, #{method}, #{contentType}, #{uri}, #{status}, #{schema}, #{remark}, #{createTime}, #{updateTime})
+    </insert>
 </mapper>

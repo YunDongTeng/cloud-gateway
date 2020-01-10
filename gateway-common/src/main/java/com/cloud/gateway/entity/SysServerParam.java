@@ -1,10 +1,10 @@
 package com.cloud.gateway.entity;
 
-public class SysApiServerParam extends BaseEntity {
+public class SysServerParam extends BaseEntity {
 
     private Integer id;
 
-    private Integer apiParamId;
+    private String apiParamName;
 
     private Integer apiServerId;
 
@@ -22,12 +22,12 @@ public class SysApiServerParam extends BaseEntity {
         this.id = id;
     }
 
-    public Integer getApiParamId() {
-        return apiParamId;
+    public String getApiParamName() {
+        return apiParamName;
     }
 
-    public void setApiParamId(Integer apiParamId) {
-        this.apiParamId = apiParamId;
+    public void setApiParamName(String apiParamName) {
+        this.apiParamName = apiParamName;
     }
 
     public Integer getApiServerId() {

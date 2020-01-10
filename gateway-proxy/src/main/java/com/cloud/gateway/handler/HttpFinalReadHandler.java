@@ -1,7 +1,7 @@
 package com.cloud.gateway.handler;
 
 import com.alibaba.fastjson.JSON;
-import com.cloud.gateway.exception.AppException;
+import com.cloud.gateway.common.exception.AppException;
 import com.google.common.collect.Maps;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;

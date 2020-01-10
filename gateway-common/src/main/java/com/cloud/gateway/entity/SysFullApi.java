@@ -11,9 +11,9 @@ public class SysFullApi implements Serializable {
 
     private SysApiServer apiServer;
 
-    private List<SysApiServerParam> serverParams;
+    private List<SysServerParam> serverParams;
 
-    private SysApiResponse apiResponse;
+    private SysServerResponse apiResponse;
 
     public SysApi getApi() {
         return api;
@@ -31,11 +31,11 @@ public class SysFullApi implements Serializable {
         this.apiParams = apiParams;
     }
 
-    public List<SysApiServerParam> getServerParams() {
+    public List<SysServerParam> getServerParams() {
         return serverParams;
     }
 
-    public void setServerParams(List<SysApiServerParam> serverParams) {
+    public void setServerParams(List<SysServerParam> serverParams) {
         this.serverParams = serverParams;
     }
 
@@ -47,11 +47,11 @@ public class SysFullApi implements Serializable {
         this.apiServer = apiServer;
     }
 
-    public SysApiResponse getApiResponse() {
+    public SysServerResponse getApiResponse() {
         return apiResponse;
     }
 
-    public void setApiResponse(SysApiResponse apiResponse) {
+    public void setApiResponse(SysServerResponse apiResponse) {
         this.apiResponse = apiResponse;
     }
 }

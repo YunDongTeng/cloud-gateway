@@ -3,20 +3,12 @@ package com.cloud.gateway.handler.validator;
 import com.cloud.gateway.common.context.ProxyRequestContext;
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
 import com.cloud.gateway.common.exception.AppException;
-import com.cloud.gateway.entity.SysApi;
-import com.cloud.gateway.service.SysApiService;
-import com.cloud.gateway.util.ApplicationContextUtil;
-import io.netty.buffer.Unpooled;
+import com.cloud.gateway.common.util.ApplicationContextUtil;
+import com.cloud.gateway.service.SysFullApiService;
 import io.netty.channel.*;
-import io.netty.handler.codec.http.*;
 import io.netty.util.ReferenceCountUtil;
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.StringUtils;
-import org.springframework.web.client.RestTemplate;
 
-import java.nio.charset.Charset;
 import java.util.Map;
 
 @ChannelHandler.Sharable
@@ -37,6 +29,11 @@ public class HttpValidatorHandler extends ChannelInboundHandlerAdapter {
         if (StringUtils.isEmpty(uri)) {
             throw new AppException("请求uri为空");
         }
+
+
+        SysFullApiService sysFullApiService = ApplicationContextUtil.getBean(SysFullApiService.class);
+
+        requestContext.setFullApi(sysFullApiService.loadFullApi(uri));
 
         ctx.fireChannelRead(requestContext);
 

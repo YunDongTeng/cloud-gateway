@@ -19,8 +19,11 @@ public interface SysApiDao {
     // 分页查询网关api
     List<SysApi> queryApiByPage(@Param("name") String name,
                                 @Param("uri") String uri,
+                                @Param("status") String status,
                                 @Param("start") Integer start,
                                 @Param("pageSize") Integer pageSize);
     // 获取总数
-    Integer getTotal(@Param("name") String name, @Param("uri") String uri);
+    Integer getTotal(@Param("name") String name, @Param("uri") String uri, @Param("status")String status);
+
+    int save(SysApi sysApi);
 }

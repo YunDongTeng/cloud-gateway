@@ -1,6 +1,6 @@
 package com.cloud.gateway.config;
 
-import com.cloud.gateway.util.ApplicationContextUtil;
+import com.cloud.gateway.common.util.ApplicationContextUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;

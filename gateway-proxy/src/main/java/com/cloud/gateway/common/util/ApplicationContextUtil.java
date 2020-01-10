@@ -1,4 +1,4 @@
-package com.cloud.gateway.util;
+package com.cloud.gateway.common.util;
 
 import org.springframework.context.ApplicationContext;
 

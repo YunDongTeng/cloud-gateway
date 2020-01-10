@@ -1,6 +1,6 @@
 package com.cloud.gateway.entity;
 
-public class SysApiResponse extends BaseEntity {
+public class SysServerResponse extends BaseEntity {
 
     private Integer id;
 

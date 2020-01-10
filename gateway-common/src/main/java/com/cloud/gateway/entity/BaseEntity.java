@@ -1,6 +1,7 @@
 package com.cloud.gateway.entity;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class BaseEntity implements Serializable {
@@ -43,5 +44,11 @@ public class BaseEntity implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public void preSave(){
+        Date now = new Date();
+        this.createTime = now;
+        this.updateTime = now;
     }
 }
