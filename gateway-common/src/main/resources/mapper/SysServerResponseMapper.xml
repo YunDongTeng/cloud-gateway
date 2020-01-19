@@ -18,13 +18,13 @@
     <select id="queryByApiId" resultMap="SysApiResponseMap">
         select
         <include refid="baseSql"/>
-        from sys_api_response
+        from sys_server_response
         where api_id = #{apiId}
     </select>
 
     <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into
-        sys_api_response (api_id, content_type, success_demo, fail_demo, create_time,update_time)
+        sys_server_response (api_id, content_type, success_demo, fail_demo, create_time,update_time)
         values (#{apiId}, #{contentType}, #{successDemo}, #{failDemo}, #{createTime}, #{updateTime})
     </insert>
 </mapper>

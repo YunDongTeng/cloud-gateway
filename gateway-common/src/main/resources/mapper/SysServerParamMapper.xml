@@ -21,14 +21,14 @@
     <select id="queryByServerId" resultMap="SysServerParamMap">
         select
         <include refid="baseSql"/>
-        from sys_api_server_param
+        from sys_server_param
         where
         api_server_id = #{ apiServerId }
     </select>
 
     <insert id="batchSave" parameterType="java.util.List">
         insert into
-        sys_api_server_param (api_param_name, api_server_id, name, position, request_type, create_time, update_time)
+        sys_server_param (api_param_name, api_server_id, name, position, request_type, create_time, update_time)
         values
         <foreach collection="list" item="param" separator="," >
             (#{param.apiParamName}, #{param.apiServerId}, #{param.name},#{param.position}, #{param.requestType}, #{param.createTime}, #{param.updateTime})
