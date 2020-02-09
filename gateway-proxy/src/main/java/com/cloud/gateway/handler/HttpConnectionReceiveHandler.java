@@ -3,8 +3,6 @@ package com.cloud.gateway.handler;
 import com.cloud.gateway.common.context.ProxyRequestContext;
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
 import com.cloud.gateway.common.exception.AppException;
-import com.cloud.gateway.common.util.ApplicationContextUtil;
-import com.cloud.gateway.service.SysFullApiService;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -45,6 +43,7 @@ public class HttpConnectionReceiveHandler extends ChannelInboundHandlerAdapter {
         }
 
         HttpRequest request = (HttpRequest) msg;
+
 
         if (request.decoderResult().isFailure()) {
             logger.error("请求解码错误...");

@@ -3,7 +3,7 @@ package com.cloud.gateway.handler.validator;
 import com.cloud.gateway.common.context.ProxyRequestContext;
 import com.cloud.gateway.common.context.http.ProxyHttpRequest;
 import com.cloud.gateway.common.exception.AppException;
-import com.cloud.gateway.common.util.ApplicationContextUtil;
+import com.cloud.gateway.common.context.ApplicationContextUtil;
 import com.cloud.gateway.service.SysFullApiService;
 import io.netty.channel.*;
 import io.netty.util.ReferenceCountUtil;

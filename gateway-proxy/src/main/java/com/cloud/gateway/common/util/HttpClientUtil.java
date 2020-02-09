@@ -42,7 +42,7 @@ public class HttpClientUtil {
     /**
      * 发送get请求；带请求参数
      *
-     * @param url 请求地址
+     * @param url    请求地址
      * @param params 请求参数集合
      * @return
      * @throws Exception
@@ -54,9 +54,9 @@ public class HttpClientUtil {
     /**
      * 发送get请求；带请求头和请求参数
      *
-     * @param url 请求地址
+     * @param url     请求地址
      * @param headers 请求头集合
-     * @param params 请求参数集合
+     * @param params  请求参数集合
      * @return
      * @throws Exception
      */
@@ -113,7 +113,7 @@ public class HttpClientUtil {
     /**
      * 发送post请求；带请求参数
      *
-     * @param url 请求地址
+     * @param url    请求地址
      * @param params 参数集合
      * @return
      * @throws Exception
@@ -125,9 +125,9 @@ public class HttpClientUtil {
     /**
      * 发送post请求；带请求头和请求参数
      *
-     * @param url 请求地址
+     * @param url     请求地址
      * @param headers 请求头集合
-     * @param params 请求参数集合
+     * @param params  请求参数集合
      * @return
      * @throws Exception
      */
@@ -183,7 +183,7 @@ public class HttpClientUtil {
     /**
      * 发送put请求；带请求参数
      *
-     * @param url 请求地址
+     * @param url    请求地址
      * @param params 参数集合
      * @return
      * @throws Exception
@@ -209,7 +209,6 @@ public class HttpClientUtil {
      * 发送delete请求；不带请求参数
      *
      * @param url 请求地址
-     * @param params 参数集合
      * @return
      * @throws Exception
      */
@@ -230,7 +229,7 @@ public class HttpClientUtil {
     /**
      * 发送delete请求；带请求参数
      *
-     * @param url 请求地址
+     * @param url    请求地址
      * @param params 参数集合
      * @return
      * @throws Exception
@@ -246,6 +245,7 @@ public class HttpClientUtil {
 
     /**
      * Description: 封装请求头
+     *
      * @param params
      * @param httpMethod
      */
@@ -323,4 +323,21 @@ public class HttpClientUtil {
             httpClient.close();
         }
     }
+
+    public static void main(String[] args) throws Exception {
+
+        Map<String, String> headerMap = new HashMap<>();
+        headerMap.put("Content-Type", "application/json");
+
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("userName", "admin");
+        paramMap.put("pwd", "123qwe");
+
+
+        HttpClientResult result = doPost("http://192.168.103.195:8080/app/cloud/login", headerMap, paramMap);
+
+        System.out.println(result.getContent());
+    }
+
+
 }

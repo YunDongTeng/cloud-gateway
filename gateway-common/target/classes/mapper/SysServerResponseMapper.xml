@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.gateway.mapper.SysServerResponseDao">
+
+
+    <resultMap id="SysApiResponseMap" type="com.cloud.gateway.entity.SysServerResponse">
+        <id column="id" property="id"/>
+        <result property="apiId" column="api_id"></result>
+        <result property="contentType" column="content_type"></result>
+        <result property="successDemo" column="success_demo"></result>
+        <result property="failDemo" column="fail_demo"></result>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,`api_id`,content_type,success_demo,fail_demo
+    </sql>
+
+    <select id="queryByApiId" resultMap="SysApiResponseMap">
+        select
+        <include refid="baseSql"/>
+        from sys_server_response
+        where api_id = #{apiId}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into
+        sys_server_response (api_id, content_type, success_demo, fail_demo, create_time,update_time)
+        values (#{apiId}, #{contentType}, #{successDemo}, #{failDemo}, #{createTime}, #{updateTime})
+    </insert>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.gateway.mapper.SysApiServerDao">
+
+    <resultMap id="SysApiServerMap" type="com.cloud.gateway.entity.SysApiServer">
+        <id column="id" property="id"/>
+        <result property="apiId" column="api_id"></result>
+        <result property="method" column="method"></result>
+        <result property="contentType" column="content_type"></result>
+        <result property="remoteUrl" column="remote_url"></result>
+        <result property="uri" column="uri"></result>
+        <result property="timeout" column="timeout"></result>
+        <result property="schema" column="schema"></result>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,api_id, method, content_type, remote_url, uri, `schema`, timeout
+    </sql>
+
+    <select id="queryByApiId" resultMap="SysApiServerMap">
+        select
+        <include refid="baseSql"/>
+        from sys_api_server
+        where api_id = #{apiId}
+    </select>
+
+    <insert id="save">
+        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into
+        sys_api_server (api_id, method, content_type, uri, remote_url, `schema`,timeout, create_time, update_time)
+        values (#{apiId}, #{method}, #{contentType}, #{uri}, #{remoteUrl}, #{schema}, #{timeout}, #{createTime}, #{updateTime})
+    </insert>
+
+
+</mapper>

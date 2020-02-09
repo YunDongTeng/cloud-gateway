@@ -1,6 +1,7 @@
 package com.cloud.gateway.common.context.http;
 
 import com.cloud.gateway.common.util.UriUtil;
+import com.google.common.collect.Maps;
 import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpMethod;
@@ -45,6 +46,9 @@ public class ProxyHttpRequest {
         Map<String, String> uriParams = UriUtil.getQueryParams(new URI(request.uri()));
         proxyHttpRequest.params = uriParams;
 
+        Map<String, String> formParam = getFormParam(request);
+
+
         int pIndex = request.uri().indexOf("?");
         proxyHttpRequest.uri = pIndex != -1 ? request.uri().substring(0, pIndex) : request.uri();
         // proxyHttpRequest.uri = request.uri().substring(0, request.uri().indexOf("?"));
@@ -55,6 +59,20 @@ public class ProxyHttpRequest {
 
         return proxyHttpRequest;
 
+    }
+
+    public Map<String, String> getFormParam(HttpRequest request) {
+
+        Map<String, String> param = Maps.newHashMap();
+
+        return param;
+
+    }
+
+    public Map<String, String> getJsonParam(HttpRequest request){
+        Map<String, String> param = Maps.newHashMap();
+
+        return param;
     }
 
 

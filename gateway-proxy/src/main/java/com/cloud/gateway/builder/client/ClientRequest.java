@@ -18,6 +18,8 @@ public class ClientRequest {
 
     private String uri;
 
+    private String contentType;
+
     private String method;
 
     private Map<String, String> headerParams;
@@ -40,6 +42,9 @@ public class ClientRequest {
 
         // 设置请求头参数
         clientRequest.setHeaderParams(buildHeaderParams(fullApi, buildRequestParam(proxyHttpRequest, fullApi, ParamPositionEnum.HEADER)));
+
+        // 设置ContentType
+        clientRequest.setContentType(fullApi.getApiServer().getContentType());
 
         return clientRequest;
     }
@@ -162,5 +167,13 @@ public class ClientRequest {
 
     public void setQueryParams(Map<String, String> queryParams) {
         this.queryParams = queryParams;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 }

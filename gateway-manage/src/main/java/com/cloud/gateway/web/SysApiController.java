@@ -4,6 +4,7 @@ import com.cloud.gateway.common.response.Result;
 import com.cloud.gateway.dto.SysApiDto;
 import com.cloud.gateway.dto.SysFullApiDto;
 import com.cloud.gateway.service.SysApiService;
+import com.cloud.gateway.service.impl.OrgService;
 import com.cloud.gateway.vo.SysApiVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,15 @@ public class SysApiController {
 
     @Autowired
     private SysApiService sysApiService;
+
+    @Autowired
+    private OrgService orgService;
+
+    @RequestMapping("/test")
+    public String test() throws Exception{
+        orgService.getOrg();
+        return "success";
+    }
 
     /**
      * 分页查询api列表

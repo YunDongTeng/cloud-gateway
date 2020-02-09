@@ -3,8 +3,15 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-manage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-manage/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-proxy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-proxy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-proxy/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gateway-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-user/src/main/resources" charset="UTF-8" />
   </component>
 </project>
